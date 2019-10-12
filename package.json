@@ -22,19 +22,6 @@
         "test": "react-app-rewired test",
         "eject": "react-app-rewired eject"
     },
-    "eslintConfig": {
-        "extends": "react-app",
-        "rules": {
-            "no-undef": "off",
-            "no-restricted-globals": "off",
-            "eqeqeq": "off",
-            "no-useless-escape": "off",
-            "jsx-a11y/alt-text": "off",
-            "jsx-a11y/anchor-is-valid": "off",
-            "default-case": "off",
-            "no-loop-func": "off"
-        }
-    },
     "browserslist": {
         "production": [
             ">0.2%",
