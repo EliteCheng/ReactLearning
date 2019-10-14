@@ -21,7 +21,6 @@
     },
     "scripts": {
         "start": "react-app-rewired start",
-        "windows-start": "set PORT=3166 HOST=localhost && npm start",
         "build": "react-app-rewired build",
         "test": "react-app-rewired test",
         "eject": "react-app-rewired eject"

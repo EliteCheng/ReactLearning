@@ -1,5 +1,13 @@
 const {override, fixBabelImports, addLessLoader, useEslintRc} = require('customize-cra');
 
+
+const configProcess = () => {
+    process.env.PORT = 3166;
+    process.env.HOST = 'localhost';
+    process.env.BROWSER = 'none';
+    return webpackConf => webpackConf;
+};
+
 module.exports = override(
     fixBabelImports('import', {
         libraryName: 'antd',
@@ -15,7 +23,7 @@ module.exports = override(
             '@text-color-secondary': '#aaa',
         },
     }),
-
-    useEslintRc()
+    useEslintRc(),
+    configProcess(),
 );
 
