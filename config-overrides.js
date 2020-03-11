@@ -1,12 +1,12 @@
-const {override, fixBabelImports, addLessLoader, useEslintRc} = require('customize-cra');
-
+const {override, fixBabelImports, addLessLoader, useEslintRc} = require('customize-cra')
+const path = require('path')
 
 const configProcess = () => {
-    process.env.PORT = 3166;
-    process.env.HOST = 'localhost';
-    process.env.BROWSER = 'none';
-    return webpackConf => webpackConf;
-};
+    process.env.PORT = 3166
+    process.env.HOST = 'localhost'
+    process.env.BROWSER = 'none'
+    return webpackConf => webpackConf
+}
 
 module.exports = override(
     fixBabelImports('import', {
@@ -25,5 +25,9 @@ module.exports = override(
     }),
     useEslintRc(),
     configProcess(),
-);
+    (wpc) => {
+        wpc.entry[1] = path.join(__dirname, './src/react-rewrite/index.jsx')
+        return wpc
+    },
+)
 
