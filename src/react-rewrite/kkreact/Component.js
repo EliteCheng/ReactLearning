@@ -1,7 +1,7 @@
 import * as _ from './util'
 import {clearPending, compareTwoVnodes, getChildContext, renderComponent, syncCache,} from './virtual-dom'
 
-// 更新队列
+// 全局唯一的更新队列
 export let updateQueue = {
     updaters: [],
     isPending: false,
@@ -40,7 +40,7 @@ class Updater {
             ? this.updateComponent()
             : updateQueue.add(this)
     }
-
+z
     updateComponent() {
         let {instance, pendingStates, nextProps, nextContext} = this
         if (nextProps || pendingStates.length > 0) {
@@ -69,26 +69,25 @@ class Updater {
     }
 
     getState() {
+        //实例，待更新状态
         let {instance, pendingStates} = this
         let {state, props} = instance
-        // console.log("pendingStates", pendingStates[0], pendingStates[1]);
         if (pendingStates.length) {
-            //state = { ...state };
             pendingStates.forEach(nextState => {
+                //若setState([{xxx}])传递的是数组，直接做覆盖替换
                 let isReplace = _.isArr(nextState)
                 if (isReplace) {
                     nextState = nextState[0]
                 }
+                //若传递的是函数
                 if (_.isFn(nextState)) {
                     nextState = nextState.call(instance, state, props)
                 }
-                // replace state
                 if (isReplace) {
                     state = {...nextState}
                 } else {
                     state = {...state, ...nextState}
                 }
-                console.log('---state', state)
             })
             pendingStates.length = 0
         }
