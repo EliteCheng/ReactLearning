@@ -186,6 +186,7 @@ export default class Component {
 function shouldUpdate(component, nextProps, nextState, nextContext, callback) {
     // 是否应该更新 判断shouldComponentUpdate生命周期
     let shouldComponentUpdate = true
+    // 首先判断组件是否存在shouldComponentUpdate方法
     if (component.shouldComponentUpdate) {
         shouldComponentUpdate = component.shouldComponentUpdate(
             nextProps,

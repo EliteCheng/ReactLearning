@@ -9,8 +9,6 @@
  * dom
  */
 
-
-
 const VNODE_TYPE = {
     0: 'TextNode',
     1: 'HtmlNode',
