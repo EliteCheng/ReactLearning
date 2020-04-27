@@ -26,8 +26,7 @@ module.exports = override(
     useEslintRc(),
     configProcess(),
     (wpc) => {
-        // wpc.entry[1] = path.join(__dirname, './src/react-rewrite/index.jsx')
-        // wpc.entry.push(path.join(__dirname, './src/react-rewrite/index.jsx'))
+        wpc.entry[1] = path.join(__dirname, './src/react-rewrite/index.jsx')
         return wpc
     },
 )
