@@ -1,7 +1,11 @@
-import React, {Component} from './my-react'
-import ReactDOM from './my-react/my-react-dom'
+import React, {Component} from './index'
+import ReactDOM from './my-react-dom'
 import './index.css'
 
+/**
+ * 要测试需要程序改变入口，即修改config-overrides.js文件
+ * wpc.entry[1] = path.join(__dirname, './src/react-rewrite/index.jsx')
+ */
 class ClassCmp extends Component {
     constructor(props) {
         super(props)
