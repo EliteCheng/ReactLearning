@@ -24,3 +24,15 @@ npm -v
 6.yarn remote <package> 删除工具包
 ```
 
+# React 源码解析
+
+## ReactDOM.render
+
+1. 创建ReactRoot
+2. 创建FiberRoot和RootFiber，
+3. 创建更新
+
+FiberRoot是整个应用的起点，包含应用挂载的目标节点，记录整个应用更新过程的各种信息。
+
+Fiber：每个ReactElement对应一个Fiber对象，记录节点的各种状态（比如我们的class Component的this.state和this.props他是记录在Fiber对象上面的，然后再fiber更新之后，才回更新到我们的class Component上。而不是通过class component他自己去调理这个过程。这也给了react实现hooks的一个方便。）。fiber还能够串联整个应用形成的树结构。 
+

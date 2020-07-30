@@ -26,7 +26,7 @@ module.exports = override(
     useEslintRc(),
     configProcess(),
     (wpc) => {
-        wpc.entry[1] = path.join(__dirname, './src/react-rewrite/yolkjs/test-yolkjs.jsx')
+        // wpc.entry[1] = path.join(__dirname, './src/react-rewrite/yolkjs/test-yolkjs.jsx')
         return wpc
     },
 )

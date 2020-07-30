@@ -1,6 +1,6 @@
 import React, {Component, createContext, useEffect, useState} from 'react'
 
-const CountContext = createContext(null)
+const CountContext = createContext(0)
 
 class Foo extends Component {
     render() {
